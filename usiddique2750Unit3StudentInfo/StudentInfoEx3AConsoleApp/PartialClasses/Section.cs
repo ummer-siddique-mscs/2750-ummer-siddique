@@ -14,7 +14,9 @@ namespace StudentInfoEx3AConsoleApp
             this.Enrollments = new HashSet<Enrollment>();
             this.Id = id;
             this.Capacity = capacity;
+            this.Course = course;
             course.Sections.Add(this);
+            this.Term = term;
             term.Sections.Add(this);
 
         }
@@ -35,6 +37,19 @@ namespace StudentInfoEx3AConsoleApp
             return foundAssignment;
         }
 
+        public Enrollment FindEnrollment(int studentId)
+        {
+            Enrollment foundEnrollment = null;
+            foreach (Enrollment e in this.Enrollments)
+            {
+                if (e.Student.Id == studentId)
+                {
+                    foundEnrollment = e;
+                    break;
+                }
+            }
+            return foundEnrollment;
+        }
     }
 }
 

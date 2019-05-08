@@ -17,8 +17,26 @@ namespace StudentInfoEx3AConsoleApp
             this.MaxPoints = maxPoints;
             this.DueDate = dueDate;
             this.AssignmentTypeEnum = type;
+            this.Section = section;
             section.Assignments.Add(this);
 
         }
+
+        public AssignmentGrade FindAssignmentGrade(int enrollmentId)
+        {
+            //return this.Courses.Find(c => c.CourseNum == courseNum);
+            AssignmentGrade foundAssignmentGrade = null;
+
+            foreach (AssignmentGrade g in this.AssignmentGrades)
+            {
+                if (g.Enrollment.Id == enrollmentId)
+                {
+                    foundAssignmentGrade = g;
+                    break;
+                }
+            }
+            return foundAssignmentGrade;
+        }
     }
 }
+

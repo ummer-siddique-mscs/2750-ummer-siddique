@@ -16,6 +16,7 @@ namespace StudentInfoEx3AConsoleApp
             this.CourseNum = courseNum;
             this.CourseTitle = courseTitle;
             this.Credits = credits;
+            this.Department = department;
             department.Courses.Add(this);
 
         }
